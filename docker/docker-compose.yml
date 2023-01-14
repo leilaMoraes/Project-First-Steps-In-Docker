@@ -1,5 +1,4 @@
-version: "3"
-
+version: '3'
 services:
   todofront:
     image: todofrontend
@@ -7,27 +6,27 @@ services:
       - 3000:3000
     environment:
       - REACT_APP_API_HOST=todoback
-    depends-on:
+    depends_on:
       - todoback
     networks:
-      - todorede
+      - networktodo
 
   todoback:
     image: todobackend
     ports:
       - 3001:3001
     networks:
-      - todorede
+      - networktodo
 
   todotests:
     image: todotests
     environment:
       - FRONT_HOST=todofront
-    depends-on:
+    depends_on:
       - todofront
       - todoback
     networks:
-      - todorede
+      - networktodo
 
 networks:
-  todorede:
+    networktodo:
