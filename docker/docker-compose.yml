@@ -9,11 +9,15 @@ services:
       - REACT_APP_API_HOST=todoback
     depends-on:
       - todoback
+    networks:
+      - todorede
 
   todoback:
     image: todobackend
     ports:
       - 3001:3001
+    networks:
+      - todorede
 
   todotests:
     image: todotests
@@ -22,3 +26,8 @@ services:
     depends-on:
       - todoback
       - todofront
+    networks:
+      - todorede
+
+networks:
+  todorede:
