@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 services:
   todofront:
@@ -24,8 +24,8 @@ services:
     environment:
       - FRONT_HOST=todofront
     depends-on:
-      - todoback
       - todofront
+      - todoback
     networks:
       - todorede
 
